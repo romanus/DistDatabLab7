@@ -1,0 +1,96 @@
+{
+    "items": [
+        {
+            "category" : "Phone",
+            "model" : "iPhone 6",
+            "producer" : "Apple",
+            "price" : 600
+        }
+        ,{
+            "category" : "Phone",
+            "model" : "iPhone 7",
+            "producer" : "Apple",
+            "price" : 700
+        }
+        ,{
+            "category" : "TV",
+            "model" : "Apple TV 4",
+            "producer" : "Apple",
+            "price" : 300
+        }
+        ,{
+            "category" : "TV",
+            "model" : "Apple TV 4k",
+            "producer" : "Apple",
+            "price" : 350
+        }
+        ,{
+            "category" : "Smart Watch",
+            "model" : "Apple Watch Series 3",
+            "producer" : "Apple",
+            "price" : 250
+        }
+        ,{
+            "category" : "Smart Watch",
+            "model" : "Apple Watch Series 4",
+            "producer" : "Apple",
+            "price" : 300
+        }
+        ,{
+            "category" : "Phone",
+            "model" : "Pixel 3",
+            "producer" : "Google",
+            "price" : 700
+        }
+    ],
+    "orders": [
+        {    
+			"order_number" : 201513,
+			"date" : 0,
+			"total_sum" : 1500,
+			"customer" : {
+				"name" : "Andrii",
+				"surname" : "Rodinov",
+				"phones" : [ 9876543, 1234567],
+				"address" : "PTI, Peremohy 37, Kyiv, UA"
+			},
+			"payment" : {
+				"card_owner" : "Andrii Rodionov",
+				"cardId" : 12345678
+			},
+			"order_items_id" : []
+		}
+		,{    
+			"order_number" : 201514,
+			"date" : 0,
+			"total_sum" : 2000,
+			"customer" : {
+				"name" : "Andrii",
+				"surname" : "Rodinov",
+				"phones" : [ 9876543, 1234567],
+				"address" : "PTI, Peremohy 37, Kyiv, UA"
+			},
+			"payment" : {
+				"card_owner" : "Andrii Rodionov",
+				"cardId" : 12345678
+			},
+			"order_items_id" : []
+		}
+		,{    
+			"order_number" : 201515,
+			"date" : 0,
+			"total_sum" : 2500,
+			"customer" : {
+				"name" : "Teodor",
+				"surname" : "Romanus",
+				"phones" : [ 1234567],
+				"address" : "42 Vulytsya str., Lviv, UA"
+			},
+			"payment" : {
+				"card_owner" : "Andrii Rodionov",
+				"cardId" : 12345678
+			},
+			"order_items_id" : []
+		}
+    ]
+}
