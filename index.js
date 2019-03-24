@@ -215,11 +215,46 @@ async function do_homework(db){
 
     console.log("\n10. Отримайте топ N товарів за популярністю (тобто топ товарів, які куплялись найчастіше) (функцію sort не застосовувати)")
 
-    // ???
+    let N = 2
+
+    await db.collection(string.orders).mapReduce(
+        function(){
+            this.order_items_id.forEach(item => emit(item.$id.model, 1))
+        },
+        function(_, values){ return Array.sum(values)},
+        {out: {replace: string.reduced}}
+    )
+
+    const reduced10 = await db.collection(string.reduced).aggregate([
+        {$sort: {'value':-1}},
+        {$limit: N}
+    ]
+    ).toArray()
+
+    console.log(JSON.stringify(reduced10, null, 2))
 
     console.log("\n11. Отримайте топ N замовників (за сумарною вартістю їх замовлень) (функцію sort не застосовувати)")
 
-    // ???
+    N = 1
+
+    await db.collection(string.orders).mapReduce(
+        function(){
+            const customer = this.customer.name + " " + this.customer.surname
+            this.order_items_id.forEach(function(item){
+                emit(customer, item.$id.price)
+            })
+        },
+        function(_, prices) { return Array.sum(prices) },
+        {out: {replace: string.reduced}}
+    )
+
+    const reduced11 = await db.collection(string.reduced).aggregate([
+        {$sort: {'value':-1}},
+        {$limit: N}
+    ]
+    ).toArray()
+
+    console.log(JSON.stringify(reduced11, null, 2))
 
     console.log("\n12. Для завдань 3, 4) реалізуйте інкрементальний Map/Reduce використовуючи out і action")
 
